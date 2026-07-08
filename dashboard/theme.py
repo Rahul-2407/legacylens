@@ -65,66 +65,23 @@ header[data-testid="stHeader"] {{
 .stDeployButton {{ display: none; }}
 #MainMenu {{ visibility: hidden; }}
 footer {{ visibility: hidden; }}
-.block-container {{ padding-top: 3.6rem; padding-bottom: 4rem;
+.block-container {{ padding-top: 2.4rem; padding-bottom: 4rem;
                     max-width: 1360px; }}
 html, body, [class*="css"] {{
     font-family: {BODY}; color: {INK_SOFT};
     -webkit-font-smoothing: antialiased;
-}}
-/* Streamlit's icons (sidebar collapse, expander chevrons) are font
-   ligatures - they must keep the Material Symbols font or the raw
-   text like "keyboard_double_arrow_left" shows instead of the glyph. */
-[data-testid="stIconMaterial"],
-.material-symbols-rounded,
-.material-symbols-outlined,
-span[class*="material-symbols"] {{
-    font-family: 'Material Symbols Rounded', 'Material Symbols Outlined'
-        !important;
 }}
 h1, h2, h3 {{ font-family: {DISPLAY}; color: {INK};
               letter-spacing: -0.02em; font-weight: 600; }}
 code {{ font-family: {MONO}; background: {SUBTLE}; color: {INK_SOFT};
         padding: 1px 6px; border-radius: 6px; font-size: 0.85em; }}
 
-/* Sidebar collapse/expand controls: these icons are font ligatures and
-   show raw text like "keyboard_double_arrow_left" when the icon font is
-   blocked (Brave shields, offline). Hide the text and draw the arrows
-   in plain CSS so they can never break. */
-[data-testid="stSidebarCollapseButton"] span[data-testid="stIconMaterial"],
-[data-testid="stSidebarCollapseButton"] button span,
-[data-testid="stSidebarCollapsedControl"] span[data-testid="stIconMaterial"],
-[data-testid="stSidebarCollapsedControl"] button span,
-[data-testid="stExpandSidebarButton"] span[data-testid="stIconMaterial"] {{
-    font-size: 0 !important;
-    line-height: 0 !important;
-    letter-spacing: 0 !important;
-}}
-[data-testid="stSidebarCollapseButton"]
-    span[data-testid="stIconMaterial"]::before,
-[data-testid="stSidebarCollapseButton"] button span::before {{
-    content: "\\00AB";                 /* double left angle */
-    font-family: {BODY};
-    font-size: 20px; line-height: 1; color: {INK};
-}}
-[data-testid="stSidebarCollapsedControl"]
-    span[data-testid="stIconMaterial"]::before,
-[data-testid="stSidebarCollapsedControl"] button span::before,
-[data-testid="stExpandSidebarButton"]
-    span[data-testid="stIconMaterial"]::before {{
-    content: "\\00BB";                 /* double right angle */
-    font-family: {BODY};
-    font-size: 20px; line-height: 1; color: {INK};
-}}
-
 /* ------------------------------------------------------------ sidebar */
 section[data-testid="stSidebar"] {{
     background: {CANVAS};
     border-right: 1px solid {BORDER};
 }}
-section[data-testid="stSidebar"]
-    *:not([data-testid="stIconMaterial"]):not([class*="material-symbols"]) {{
-    font-family: {BODY};
-}}
+section[data-testid="stSidebar"] * {{ font-family: {BODY}; }}
 section[data-testid="stSidebar"] .stRadio label {{
     padding: 9px 12px; border-radius: 10px; width: 100%;
     font-size: 14px; color: {INK_SOFT}; transition: background .12s ease;

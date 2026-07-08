@@ -1,0 +1,16 @@
+# Pins the app to LegacyLens's beige/white/near-black design system,
+# regardless of a visitor's OS/browser dark-mode preference.
+#
+# Without this file, Streamlit auto-detects the viewer's system theme and
+# injects its own dark-theme CSS variables. dashboard/theme.py's custom
+# CSS assumes a light canvas, so on a dark-preferring browser some text
+# ends up using Streamlit's dark-theme text color against our light
+# background — very low contrast, which is what showed up in production.
+
+[theme]
+base = "light"
+primaryColor = "#141412"
+backgroundColor = "#EFEAE1"
+secondaryBackgroundColor = "#FFFFFF"
+textColor = "#141412"
+font = "sans serif"
