@@ -1,0 +1,9 @@
+# Streamlit Community Cloud runs `pip install -r requirements.txt` from
+# the repo root. "-e ." installs this repo's own package (legacylens,
+# under src/) using pyproject.toml, exactly like local dev does.
+#
+# We only need the base deps + the dashboard extra: no `postgres` extra
+# (we run on SQLite here) and no `graph` extra (Neo4j isn't available in
+# standalone mode; module/wave diagrams still render, they're just built
+# from `module_graph`/`architecture` artifacts, not a live Neo4j store).
+-e .[dashboard]
